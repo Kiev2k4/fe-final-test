@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Tabs } from "antd";
+import { Layout, Tabs, App as AntdApp } from "antd";
 import { TeamOutlined, AppstoreOutlined } from "@ant-design/icons";
 import TeacherList from "./components/TeacherList";
 import CreateTeacherForm from "./components/CreateTeacherForm";
@@ -58,45 +58,47 @@ function App() {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Header
-        style={{
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          padding: "0 50px",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <h1 style={{ color: "white", margin: 0, fontSize: "24px" }}>
-          🎓 Hệ Thống Quản Lý Giáo Viên
-        </h1>
-      </Header>
-
-      <Content style={{ padding: "24px 50px", background: "#f0f2f5" }}>
-        <div
-          style={{ background: "#fff", padding: "24px", borderRadius: "8px" }}
+    <AntdApp>
+      <Layout style={{ minHeight: "100vh" }}>
+        <Header
+          style={{
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            padding: "0 50px",
+            display: "flex",
+            alignItems: "center",
+          }}
         >
-          <Tabs
-            activeKey={activeTab}
-            onChange={setActiveTab}
-            items={tabItems}
-            size="large"
-          />
-        </div>
-      </Content>
+          <h1 style={{ color: "white", margin: 0, fontSize: "24px" }}>
+            🎓 Hệ Thống Quản Lý Giáo Viên
+          </h1>
+        </Header>
 
-      <CreateTeacherForm
-        visible={showTeacherForm}
-        onClose={() => setShowTeacherForm(false)}
-        onSuccess={handleTeacherSuccess}
-      />
+        <Content style={{ padding: "24px 50px", background: "#f0f2f5" }}>
+          <div
+            style={{ background: "#fff", padding: "24px", borderRadius: "8px" }}
+          >
+            <Tabs
+              activeKey={activeTab}
+              onChange={setActiveTab}
+              items={tabItems}
+              size="large"
+            />
+          </div>
+        </Content>
 
-      <CreatePositionForm
-        visible={showPositionForm}
-        onClose={() => setShowPositionForm(false)}
-        onSuccess={handlePositionSuccess}
-      />
-    </Layout>
+        <CreateTeacherForm
+          visible={showTeacherForm}
+          onClose={() => setShowTeacherForm(false)}
+          onSuccess={handleTeacherSuccess}
+        />
+
+        <CreatePositionForm
+          visible={showPositionForm}
+          onClose={() => setShowPositionForm(false)}
+          onSuccess={handlePositionSuccess}
+        />
+      </Layout>
+    </AntdApp>
   );
 }
 

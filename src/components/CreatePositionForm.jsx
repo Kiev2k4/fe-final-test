@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Form, Input, Radio, Button, Space, message } from "antd";
+import { Modal, Form, Input, Radio, Button, Space, App } from "antd";
 import { teacherPositionAPI } from "../services/api";
 
 const { TextArea } = Input;
@@ -7,6 +7,7 @@ const { TextArea } = Input;
 const CreatePositionForm = ({ visible, onClose, onSuccess }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const { message } = App.useApp();
 
   const handleSubmit = async (values) => {
     try {

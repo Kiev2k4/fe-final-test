@@ -8,7 +8,7 @@ import {
   Button,
   Checkbox,
   Space,
-  message,
+  App,
   Divider,
   Upload,
 } from "antd";
@@ -25,6 +25,7 @@ const { TextArea } = Input;
 
 const CreateTeacherForm = ({ visible, onClose, onSuccess }) => {
   const [form] = Form.useForm();
+  const { message } = App.useApp();
   const [loading, setLoading] = useState(false);
   const [positions, setPositions] = useState([]);
   const [avatarBase64, setAvatarBase64] = useState(null);
